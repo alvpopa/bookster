@@ -12,6 +12,7 @@ import {
   Container,
   ListGroup,
   ListGroupItem,
+  Progress,
   UncontrolledCollapse,
 } from 'reactstrap';
 
@@ -51,6 +52,17 @@ const TicketList = ({ userId }) => {
     navigate('/dashboard');
   };
 
+  const expenses = data.userTickets.reduce(
+    (acc, { amount, totalOdd, isWinner }) => {
+      acc.paid += amount;
+      if (isWinner) acc.won += amount * totalOdd;
+      return acc;
+    },
+    { paid: 0, won: 0 }
+  );
+
+  const { paid, won } = expenses;
+
   return (
     <Container>
       <h1 className="display-8">
@@ -62,6 +74,14 @@ const TicketList = ({ userId }) => {
           {data.userTickets.length}
         </Badge>
       </h1>
+      <Progress className="mt-5 mb-5" multi>
+        <Progress bar color="success" value={won} max={won + paid}>
+          Won: {won} RON
+        </Progress>
+        <Progress bar color="danger" value={paid} max={won + paid}>
+          Lost: {paid} RON
+        </Progress>
+      </Progress>
       <ListGroup>
         {data.userTickets.map(
           ({ id, date, amount, totalOdd, isWinner, predictions }) => (
