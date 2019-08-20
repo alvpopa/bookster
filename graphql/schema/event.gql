@@ -1,0 +1,21 @@
+type Goal {
+  minute: Int
+  team: TeamInfo
+  type: String
+  scorer: Player
+  assist: Player
+}
+
+type Booking {
+  minute: Int
+  team: TeamInfo
+  player: Player
+  card: String
+}
+
+type Substitution {
+  minute: Int
+  team: TeamInfo
+  playerOut: Player
+  playerIn: Player
+}

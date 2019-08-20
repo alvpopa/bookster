@@ -1,0 +1,45 @@
+type Prediction {
+  id: String
+  eventId: Int
+  homeTeam: String
+  awayTeam: String
+  prediction: String
+  odd: Float
+  result: String
+  isCorrect: Boolean
+}
+
+input PredictionInput {
+  eventId: Int
+  homeTeam: String
+  awayTeam: String
+  prediction: String
+  odd: Float
+}
+
+type Ticket {
+  id: String
+  userId: String
+  date: String
+  predictions: [Prediction]
+  amount: Float
+  totalOdd: Float
+  isWinner: Boolean
+}
+
+input TicketInput {
+  userId: String
+  predictions: [PredictionInput]
+  amount: Float
+  totalOdd: Float
+  isWinner: Boolean
+}
+
+type Query {
+  tickets: [Ticket]
+  userTickets(userId: String): [Ticket]
+}
+
+type Mutation {
+  addTicket(input: TicketInput): Ticket
+}

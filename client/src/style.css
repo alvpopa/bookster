@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Operator Mono';
+  overflow-x: hidden;
+}
+
+#Login,
+#Signup {
+  width: 60%;
+  margin: auto;
+}
+
+#alert {
+  width: 100rem;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: black;
+}

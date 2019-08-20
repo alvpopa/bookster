@@ -1,0 +1,29 @@
+type TableTeam {
+  id: ID!
+  name: String
+  crestUrl: String
+}
+
+type TableEntry {
+  position: Int
+  team: TableTeam
+  playedGames: Int
+  won: Int
+  draw: Int
+  lost: Int
+  points: Int
+  goalsFor: Int
+  goalsAgainst: Int
+  goalDifference: Int
+}
+
+type Standing {
+  stage: String
+  type: String
+  group: String
+  table: [TableEntry]
+}
+
+type Query {
+  standing(id: ID!): Standing!
+}

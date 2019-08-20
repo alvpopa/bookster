@@ -1,0 +1,43 @@
+type Player {
+  id: Int!
+  name: String
+  position: String
+  shirtNumber: Int
+}
+
+type Coach {
+  id: Int!
+  name: String
+  countryOfBirth: String
+  nationality: String
+}
+
+type TeamArea {
+  id: Int
+  name: String
+}
+
+type TeamInfo {
+  id: Int
+  area: TeamArea
+  name: String
+  shortName: String
+  tla: String
+  crestUrl: String
+  address: String
+  phone: String
+  website: String
+  email: String
+  founded: Int
+  clubColors: String
+  venue: String
+  coach: Coach
+  captain: Player
+  lineup: [Player]
+  bench: [Player]
+  squad: [Player]
+}
+
+type Query {
+  team(id: ID!): TeamInfo!
+}

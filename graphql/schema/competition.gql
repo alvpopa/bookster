@@ -1,0 +1,27 @@
+type Area {
+  id: Int!
+  name: String!
+}
+
+type Season {
+  id: Int!
+  startDate: String!
+  endDate: String!
+  currentMatchDay: Int
+}
+
+type Competition {
+  id: Int!
+  area: Area
+  name: String
+  code: String
+  plan: String
+  currentSeason: Season
+  seasons: [Season]
+  lastUpdated: String
+}
+
+type Query {
+  competitions: [Competition!]!
+  competition(id: ID!): Competition
+}

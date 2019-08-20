@@ -1,0 +1,4 @@
+{
+  "MONGO_URI": "mongodb+srv://admin:root@bookster-hztsz.mongodb.net/test?retryWrites=true&w=majority",
+  "JWT_KEY": "bookster@jwt.key"
+}

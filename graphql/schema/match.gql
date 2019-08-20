@@ -1,0 +1,63 @@
+type PartialScore {
+  homeTeam: Int
+  awayTeam: Int
+}
+
+type TeamStat {
+  wins: Int
+  draws: Int
+  losses: Int
+}
+
+type Score {
+  winner: String
+  duration: String
+  fullTime: PartialScore
+  halfTime: PartialScore
+  extraTime: PartialScore
+  penalties: PartialScore
+}
+
+type Referee {
+  id: Int!
+  name: String
+  nationality: String
+}
+
+type Match {
+  id: Int!
+  competition: Competition
+  season: Season
+  utcDate: String
+  status: String
+  attendance: String
+  matchday: Int
+  stage: String
+  group: String
+  venue: String
+  lastUpdated: String
+  homeTeam: TeamInfo
+  awayTeam: TeamInfo
+  score: Score
+  goals: [Goal]
+  bookings: [Booking]
+  substitution: [Substitution]
+  referee: [Referee]
+}
+
+type Head2head {
+  numberOfMatches: Int
+  totalGoals: Int
+  homeTeam: TeamStat
+  awayTeam: TeamStat
+}
+
+type MatchInfo {
+  head2head: Head2head
+  match: Match
+}
+
+type Query {
+  matches: [Match!]!
+  match(id: ID!): MatchInfo!
+}

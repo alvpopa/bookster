@@ -1,0 +1,44 @@
+{
+  "name": "Bookster",
+  "version": "1.0.0",
+  "description": "Full stack application for bookies ",
+  "main": "server.js",
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "start": "node -r esm server.js",
+    "server": "nodemon -r esm server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.1.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "graphql-yoga": "^1.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "merge-graphql-schemas": "^1.6.2-3705b28.0",
+    "mongoose": "^5.6.3",
+    "morgan": "^1.9.1",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "eslint": "5",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-wesbos": "^0.0.19",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2"
+  }
+}
